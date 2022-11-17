@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADMIN PANEL</title>
+    <style>
+        table {
+            width: 100%;
+            border: 4px double black;
+            border-collapse: collapse;
+        }
+        th {
+            text-align: center;
+            background: #eee8aa; /* Цвет фона ячеек */
+            padding: 5px; /* Поля вокруг содержимого ячеек */
+            border: 1px solid black; /* Граница вокруг ячеек */
+        }
+    </style>
+</head>
+<body>
+<h1 style="text-align: center;"><strong>USERS LIST</strong></h1>
+<br>
+<br>
+<div style="text-align: center;" class="text-center"><input type="button" value="Add user" onclick="window.location.href = '/admin/register'"/></div><br>
+<div style="text-align: center;" class="text-center"><input type="button" value="Your Profile" onclick="window.location.href = '/user'"/></div><br>
+<div style="text-align: center;" class="text-center"><form th:action="@{/logout}" th:method="POST">
+    <input type="submit" value="Logout"/>
+</form></div>
+
+<br>
+<br>
+<table border="1" align="center" cellspacing="0" cellpadding="3">
+
+    <tr>
+        <th>Username</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Role</th>
+
+    </tr>
+    <tr  style="text-align:center" th:each="allUsers : ${allUsers}">
+        <td th:text="${allUsers.getUsername()}">UserName</td>
+        <td th:text="${allUsers.getFirstName()}">First Name</td>
+        <td th:text="${allUsers.getLastName()}">Second Name</td>
+        <td th:text="${allUsers.getAge()}">Age</td>
+        <td th:text="${allUsers.getRoles()}">Role</td>
+        <td> <a th:href="@{/admin/{id}/edit(id=${allUsers.getId()})}">
+            <button type="button">Edit user </button></a>
+            <form th:method="DELETE" th:action="@{/admin/{id}(id=${allUsers.getId()})}">
+                <input type="submit" value = "Delete user"/>
+            </form>
+        </td>
+    </tr>
+</table>
+
+</form>
+</body>
+</html>

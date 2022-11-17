@@ -1,0 +1,52 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>SHOW_ALL_&_OPEN_CREATE_NEW_USER</title>-->
+<!--    <style>-->
+<!--        table {-->
+<!--            width: 100%;-->
+<!--            border: 4px double black;-->
+<!--            border-collapse: collapse;-->
+<!--        }-->
+<!--        th {-->
+<!--            text-align: center;-->
+<!--            background: #eee8aa; /* Цвет фона ячеек */-->
+<!--            padding: 5px; /* Поля вокруг содержимого ячеек */-->
+<!--            border: 1px solid black; /* Граница вокруг ячеек */-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div>-->
+<!--    <table>-->
+<!--        <thead>-->
+<!--        <h2 align="center">Users List</h2>-->
+<!--        <th>Id</th>-->
+<!--        <th>Name</th>-->
+<!--        <th>Last name</th>-->
+<!--        <th>Age</th>-->
+<!--        </thead>-->
+
+<!--        <th:block th:each="user : ${allUsers}" th:object="${user}">-->
+
+<!--            <tr id="tr_id">-->
+<!--                <form th:method="get" th:action="@{/user/{id}(id=${user.getId()})}" th:object="${user}">-->
+<!--                    <tbody>-->
+<!--                    <td id="t_id" class="filterable-cell" th:text="*{id}"></td>-->
+<!--                    <td><a th:href="@{/user/__*{id}__}" id="t_name" class="filterable-cell" th:text="*{firstName}"></a></td>-->
+<!--                    <td id="t_last_name" class="filterable-cell" th:text="*{lastName}"></td>-->
+<!--                    <td id="t_age" class="filterable-cell" th:text="*{age}"></td>-->
+<!--                    <td><input type="submit" value="Edit"/></td>-->
+<!--                    </tbody>-->
+<!--                </form>-->
+<!--            </tr>-->
+<!--        </th:block>-->
+
+<!--        </th:block>-->
+<!--    </table>-->
+<!--</div>-->
+<!--<p><a href="/user/new" id="newUser">Add New User</a></p>-->
+<!--</body>-->
+<!--</html>-->
